@@ -20,6 +20,33 @@ interface CategoriaData {
   nomeCategoria: string;
 }
 
+interface TransacaoData{
+nomeTransacao : string;
+codigoTipoTransacao : string;
+valorParcela : number;
+numeroParcelaTotal : number;
+numeroParcelaAtual : number;
+idFormaPagamento : number;
+idCategoria : number;
+dataPrevista : string;
+dataRealizada : string;
+flagRecorrente : boolean;
+}
+
+export const criarTransacao = async (transacaoData: TransacaoData) => {
+  const response = await fetch(`${API_URL}/transacoes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(transacaoData)
+  });
+  if (!response.ok) {
+    throw new Error('Falha ao criar a Transação');
+  }
+  return response.json();
+};
+
 export const criarCartao = async (cartaoData: CartaoData) => {
   const response = await fetch(`${API_URL}/cartoes`, {
     method: 'POST',
@@ -29,8 +56,6 @@ export const criarCartao = async (cartaoData: CartaoData) => {
     body: JSON.stringify(cartaoData)
   });
   if (!response.ok) {
-    console.log('Json',JSON.stringify(cartaoData));
-    console.log(response);
     throw new Error('Falha ao criar o cartão');
   }
   return response.json();
@@ -45,7 +70,7 @@ export const criarFormaPagamento = async (formaPagamentoData: FormaPagamentoData
     body: JSON.stringify(formaPagamentoData)
   });
   if (!response.ok) {
-    throw new Error('Falha ao criar a carteira');
+    throw new Error('Falha ao criar a forma de pagamento');
   }
   return response.json();
 };
@@ -60,7 +85,7 @@ export const criarCategoria = async (categoriaData: CategoriaData) => {
   });
   if (!response.ok) {
     console.log('Json',JSON.stringify(categoriaData));
-    throw new Error('Falha ao criar a carteira');
+    throw new Error('Falha ao criar a categoria');
   }
   return response.json();
 };
