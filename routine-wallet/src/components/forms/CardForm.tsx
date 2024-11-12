@@ -1,6 +1,6 @@
 // src/components/CardForm.tsx
 import React, { useState } from 'react';
-import { criarCartao } from '../services/api';  // Ajuste o caminho conforme necessário
+import { criarCartao } from '../../services/api/cartao/api';
 
 const CardForm = () => {
   const [cartao, setCartao] = useState({

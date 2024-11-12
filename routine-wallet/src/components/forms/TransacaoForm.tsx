@@ -1,6 +1,8 @@
 // src/components/CardForm.tsx
 import React, { useState } from 'react';
-import { criarTransacao } from '../services/api';  // Ajuste o caminho conforme necessário
+import { criarTransacao } from '../../services/api/transacao/api'
+import { obterCategoriaComboBox } from '../../services/api/categoria/api'
+import ComboBox from '../common/comboBox/ComboBox';
 
 const TransacaoForm = () => {
   const [transacao, setTransacao] = useState({
@@ -36,7 +38,14 @@ const TransacaoForm = () => {
       <input type="number" name="numeroParcelaTotal" value={transacao.numeroParcelaTotal} onChange={(e) => setTransacao({ ...transacao, numeroParcelaTotal: Number(e.target.value) })} placeholder="Parcela Total" required />
       <input type="number" name="numeroParcelaAtual" value={transacao.numeroParcelaAtual} onChange={(e) => setTransacao({ ...transacao, numeroParcelaAtual: Number(e.target.value) })} placeholder="Parcela Atual" required />
       <input type="number" name="idFormaPagamento" value={transacao.idFormaPagamento} onChange={(e) => setTransacao({ ...transacao, idFormaPagamento: Number(e.target.value) })} placeholder="Forma de Pagamento" required />
-      <input type="number" name="idCategoria" value={transacao.idCategoria} onChange={(e) => setTransacao({ ...transacao, idCategoria: Number(e.target.value) })} placeholder="Categoria" required />
+      
+      <ComboBox
+        fetchData={obterCategoriaComboBox}
+        placeholder="Selecione uma categoria"
+        value={transacao.idCategoria}
+        onChange={(newValue) => setTransacao({ ...transacao, idCategoria: newValue })}
+      />
+
       <input type="date" name="dataPrevista" value={transacao.dataPrevista} onChange={(e) => setTransacao({ ...transacao, dataPrevista: e.target.value })} placeholder="Data Prevista" required />
       <input type="date" name="dataRealizada" value={transacao.dataRealizada} onChange={(e) => setTransacao({ ...transacao, dataRealizada: e.target.value })} placeholder="Data de Realização" required />
       <input type="checkbox" name="flagRecorrente" checked={transacao.flagRecorrente} onChange={(e) => setTransacao({ ...transacao, flagRecorrente: e.target.checked })} placeholder="Flag Recorrente" />      

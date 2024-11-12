@@ -1,6 +1,6 @@
 // src/components/CardForm.tsx
 import React, { useState } from 'react';
-import { criarFormaPagamento } from '../services/api';  // Ajuste o caminho conforme necessário
+import { criarFormaPagamento } from '../../services/api/forma-pagamento/api';
 
 const FormaPagamentoForm = () => {
   const [formaPagamento, setFormaPagamento] = useState({

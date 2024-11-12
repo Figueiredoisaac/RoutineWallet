@@ -1,9 +1,9 @@
 import React from 'react';
-import CardForm from '../components/CardForm';
-import WalletForm from '../components/WalletForm';
-import CategoriaForm from '@/components/CategoriaForm';
-import FormaPagamentoForm from '@/components/FormaPagamentoForm';
-import TransacaoForm from '@/components/TransacaoForm';
+import CardForm from '../components/forms/CardForm';
+import WalletForm from '../components/forms/WalletForm';
+import CategoriaForm from '@/components/forms/CategoriaForm';
+import FormaPagamentoForm from '@/components/forms/FormaPagamentoForm';
+import TransacaoForm from '@/components/forms/TransacaoForm';
 
 const CadastroPage: React.FC = () => {
   return (

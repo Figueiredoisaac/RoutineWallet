@@ -1,6 +1,6 @@
 // src/components/WalletForm.tsx
 import React, { useState } from 'react';
-import { criarCarteira } from '../services/api';  // Ajuste o caminho conforme necessário
+import { criarCarteira } from '../../services/api/carteira/api'; // Ajuste o caminho conforme necessário
 
 const WalletForm = () => {
   const [carteira, setCarteira] = useState({

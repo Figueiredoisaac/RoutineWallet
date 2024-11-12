@@ -1,6 +1,6 @@
 // src/components/CardForm.tsx
 import React, { useState } from 'react';
-import {criarCategoria } from '../services/api';  // Ajuste o caminho conforme necessário
+import {criarCategoria } from '../../services/api/categoria/api'; // Ajuste o caminho conforme necessário
 
 const CategoriaForm = () => {
   const [categoria, setCategoria] = useState({
