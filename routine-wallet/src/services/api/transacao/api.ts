@@ -2,7 +2,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface TransacaoData{
 nomeTransacao : string;
-codigoTipoTransacao : string;
+codigoTipoTransacao : number;
 valorParcela : number;
 numeroParcelaTotal : number;
 numeroParcelaAtual : number;

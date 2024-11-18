@@ -47,4 +47,40 @@ export const obterCategoriaComboBox = async (): Promise<{ value: number; label: 
     label: categoria.nomeCategoria
   }));
 
+  
+};
+
+export const deleteCarteira = async (id:number) => {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error('Erro ao deletar carteira');
+    }
+    return true;
+  } catch (error) {
+    console.error('Erro:', error);
+    throw error;
+  }
+};
+
+export const updateCarteira = async (id:number, updatedData:CategoriaData) => {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedData),
+    });
+    if (!response.ok) {
+      throw new Error('Erro ao atualizar carteira');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro:', error);
+    throw error;
+  }
 };
