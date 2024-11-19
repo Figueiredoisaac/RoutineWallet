@@ -1,15 +1,7 @@
+import { Categoria, CategoriaData } from '../../../interfaces/categoria';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-interface CategoriaData {
-  nomeCategoria: string;
-}
-
-interface Categoria {
-  id: number;
-  nomeCategoria: string;
-  dataCriada: string;
-  dataAtualizada: string;
-}
 
 export const criarCategoria = async (categoriaData: CategoriaData) => {
   const response = await fetch(`${API_URL}/categorias`, {

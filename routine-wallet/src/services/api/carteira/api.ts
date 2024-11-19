@@ -1,17 +1,8 @@
+import { Carteira, CarteiraData } from '../../../interfaces/carteira';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-interface CarteiraData {
-  nomeCarteira: string;
-  nomeInstituicao: string;
-}
 
-interface Carteira {
-  id: number;
-  nomeCarteira: string;
-  nomeInstituicao: string;
-  dataCriada: string;
-  dataAtualizada: string;
-}
 
 export const criarCarteira = async (carteiraData: CarteiraData) => {
   try {

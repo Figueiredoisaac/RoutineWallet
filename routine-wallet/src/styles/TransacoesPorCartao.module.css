@@ -1,0 +1,42 @@
+/* src/styles/TransacoesPorCartao.module.css */
+
+.container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .transacoesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .transacaoItem {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .transacaoItem:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .transacaoItem p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .transacaoItem p:first-child {
+    font-weight: bold;
+    color: #000;
+  }

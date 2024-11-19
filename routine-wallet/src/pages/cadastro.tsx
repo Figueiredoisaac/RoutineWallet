@@ -5,6 +5,7 @@ import CategoriaForm from '@/components/forms/CategoriaForm';
 import FormaPagamentoForm from '@/components/forms/FormaPagamentoForm';
 import TransacaoForm from '@/components/forms/TransacaoForm';
 import styles from '../styles/CadastroPage.module.css'; // Estilos para a página de cadastro
+import TransacoesPorCartao from '@/components/list/TransacaoPorCartaoList';
 
 // src/pages/cadastro.tsx
 
@@ -54,6 +55,7 @@ const CadastroPage = () => {
           <section id="transacoes" className={styles.section}>
             <h2>Cadastro de Transações</h2>
             <TransacaoForm />
+            <TransacoesPorCartao/>
           </section>
         )}
       </div>

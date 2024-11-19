@@ -1,15 +1,7 @@
+import { FormaPagamento, FormaPagamentoData } from '../../../interfaces/forma-pagamento';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-interface FormaPagamentoData {
-  nomeFormaPagamento: string;
-}
-
-interface FormaPagamento {
-  id: number;
-  nomeFormaPagamento: string;
-  dataCriada: string;
-  dataAtualizada: string;
-}
 
 export const criarFormaPagamento = async (formaPagamentoData: FormaPagamentoData) => {
   const response = await fetch(`${API_URL}/formas-pagamento`, {

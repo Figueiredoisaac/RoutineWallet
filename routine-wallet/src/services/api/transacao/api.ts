@@ -1,19 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import { TransacaoData } from '../../../interfaces/transacao';
 
-interface TransacaoData{
-nomeTransacao : string;
-codigoTipoTransacao : number;
-valorParcela : number;
-numeroParcelaTotal : number;
-numeroParcelaAtual : number;
-idFormaPagamento : number;
-idCategoria : number;
-idCarteira : number;
-idCartao : number;
-dataPrevista : string;
-dataRealizada : string;
-flagRecorrente : boolean;
-}
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const criarTransacao = async (transacaoData: TransacaoData) => {
   if (transacaoData.codigoTipoTransacao !== 1 && transacaoData.codigoTipoTransacao !== 2) {
@@ -46,3 +33,11 @@ export const criarTransacao = async (transacaoData: TransacaoData) => {
   }
   return response.json();
 };
+
+export const fetchTransacoesPorCartao = async (cartaoId : number) => {
+  const response = await fetch(`${API_URL}/transacoes/${cartaoId}`);
+  if (!response.ok) {
+    throw new Error('Falha ao buscar transações');
+  }
+  return response.json();
+}

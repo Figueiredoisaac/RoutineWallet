@@ -1,23 +1,8 @@
+import { Cartao, CartaoData } from '../../../interfaces/cartao';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-interface CartaoData {
-  nomeInstituicao: string;
-  valorLimite: number;
-  idCarteira: number;
-  dataVencimento: string;
-  dataFechamento: string;
-}
 
-interface Cartao {
-  id: number;
-  nomeInstituicao: string;
-  valorLimite: number;
-  idCarteira: number;
-  dataVencimento: string;
-  dataFechamento: string;
-  dataCriada: string;
-  dataAtualizada: string;
-}
 
 export const criarCartao = async (cartaoData: CartaoData) => {
   try {
