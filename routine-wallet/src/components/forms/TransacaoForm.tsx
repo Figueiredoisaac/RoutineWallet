@@ -5,6 +5,8 @@ import { obterCategoriaComboBox } from '../../services/api/categoria/api'
 import ComboBox from '../common/comboBox/ComboBox';
 import ComboBoxFixed from '../common/comboBox/ComboBoxFixed';
 import { obterFormaPagamentoComboBox } from '@/services/api/forma-pagamento/api';
+import { obterCartaoComboBox } from '@/services/api/cartao/api';
+import { obterCarteiraComboBox } from '@/services/api/carteira/api';
 
 const TransacaoForm = () => {
   const [transacao, setTransacao] = useState({
@@ -15,6 +17,8 @@ const TransacaoForm = () => {
     numeroParcelaAtual  : 0,
     idFormaPagamento    : 0,
     idCategoria         : 0,
+    idCartao            : 0,
+    idCarteira          : 0,
     dataPrevista        : '',
     dataRealizada       : '',
     flagRecorrente      : false
@@ -55,6 +59,18 @@ const TransacaoForm = () => {
         placeholder="Selecione uma categoria"
         value={transacao.idCategoria}
         onChange={(newValue) => setTransacao({ ...transacao, idCategoria: newValue })}
+      />
+      <ComboBox
+        fetchData={obterCartaoComboBox}
+        placeholder="Selecione um Cartão"
+        value={transacao.idCartao}
+        onChange={(newValue) => setTransacao({ ...transacao, idCartao: newValue })}
+      />
+      <ComboBox
+        fetchData={obterCarteiraComboBox}
+        placeholder="Selecione uma Carteira"
+        value={transacao.idCarteira}
+        onChange={(newValue) => setTransacao({ ...transacao, idCarteira: newValue })}
       />
       <input type="date" name="dataPrevista" value={transacao.dataPrevista} onChange={(e) => setTransacao({ ...transacao, dataPrevista: e.target.value })} placeholder="Data Prevista" required />
       <input type="date" name="dataRealizada" value={transacao.dataRealizada} onChange={(e) => setTransacao({ ...transacao, dataRealizada: e.target.value })} placeholder="Data de Realização" required />

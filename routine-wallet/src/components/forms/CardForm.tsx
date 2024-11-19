@@ -1,11 +1,14 @@
 // src/components/CardForm.tsx
 import React, { useState } from 'react';
 import { criarCartao } from '../../services/api/cartao/api';
+import { obterCarteiraComboBox } from '@/services/api/carteira/api';
+import ComboBox from '../common/comboBox/ComboBox';
 
 const CardForm = () => {
   const [cartao, setCartao] = useState({
     nomeInstituicao: '',
     valorLimite: 0,
+    idCarteira: 0,
     dataVencimento: '',
     dataFechamento: ''
   });
@@ -26,6 +29,12 @@ const CardForm = () => {
     <form onSubmit={handleSubmit}>
       <input type="text" name="nomeInstituicao" value={cartao.nomeInstituicao} onChange={(e) => setCartao({ ...cartao, nomeInstituicao: e.target.value })} placeholder="Nome da Instituição" required />
       <input type="number" name="limite" value={cartao.valorLimite} onChange={(e) => setCartao({ ...cartao, valorLimite: Number(e.target.value) })} placeholder="Limite" required />
+      <ComboBox
+        fetchData={obterCarteiraComboBox}
+        placeholder="Selecione uma Carteira"
+        value={cartao.idCarteira}
+        onChange={(newValue) => setCartao({ ...cartao, idCarteira: newValue })}
+      />
       <input type="date" name="vencimento" value={cartao.dataVencimento} onChange={(e) => setCartao({ ...cartao, dataVencimento: e.target.value })} placeholder="Data de Vencimento" required />
       <input type="date" name="fechamento" value={cartao.dataFechamento} onChange={(e) => setCartao({ ...cartao, dataFechamento: e.target.value })} placeholder="Data de Fechamento" required />
       <button type="submit">Cadastrar Cartão</button>
